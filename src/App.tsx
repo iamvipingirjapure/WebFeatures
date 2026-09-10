@@ -2,10 +2,12 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import Search from "./search/Search";
 import SearchWithAbortController from "./search/SearchWithAbortController";
+import SearchSuggest from "./search/SearchSuggest";
 
 const navItems = [
   { to: "/search", label: "Standard Search" },
   { to: "/search-abort", label: "Search with AbortController" },
+  { to: "/search-suggest", label: "Search with Suggest, arrow up/down navigation" },
 ];
 
 function Sidebar({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
@@ -164,6 +166,7 @@ function App() {
           <Routes>
             <Route path="/search" element={<Search />} />
             <Route path="/search-abort" element={<SearchWithAbortController />} />
+            <Route path="/search-suggest" element={<SearchSuggest />} />
             <Route
               path="*"
               element={
